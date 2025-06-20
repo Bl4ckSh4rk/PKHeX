@@ -136,6 +136,14 @@ public sealed class SAV3FRLG : SAV3, IGen3Joyful, IGen3Wonder, IDaycareRandomSta
 
     protected override int ExternalEventData => 0x30A7;
 
+    public override int TrainerRematchSteps
+    {
+        get => ReadInt16LittleEndian(Large.AsSpan(0x638));
+        set => WriteInt16LittleEndian(Large.AsSpan(0x638), (short)value);
+    }
+
+    public override Span<byte> TrainerRematches => Large.AsSpan(0x63A, 0x64);
+
     #region eBerry
     private const int OFFSET_EBERRY = 0x30EC;
     private const int SIZE_EBERRY = 0x34;

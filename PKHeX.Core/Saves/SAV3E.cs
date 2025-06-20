@@ -237,6 +237,14 @@ public sealed class SAV3E : SAV3, IGen3Hoenn, IGen3Joyful, IGen3Wonder, IDaycare
         State.Edited = true;
     }
 
+    public override int TrainerRematchSteps
+    {
+        get => ReadInt16LittleEndian(Large.AsSpan(0x9C8));
+        set => WriteInt16LittleEndian(Large.AsSpan(0x9C8), (short)value);
+    }
+
+    public override Span<byte> TrainerRematches => Large.AsSpan(0x9CA, 0x64);
+
     #region eBerry
     private const int OFFSET_EBERRY = 0x31F8;
     private const int SIZE_EBERRY = 0x34;
