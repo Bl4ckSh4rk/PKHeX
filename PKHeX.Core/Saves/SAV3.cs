@@ -642,7 +642,7 @@ public abstract class SAV3 : SaveFile, ILangDeviantSave, IEventFlag37, IBoxDetai
     }
 
     public abstract int TrainerRematchSteps { get; set; }
-    public abstract Span<byte> TrainerRematches { get; set; }
+    public abstract Span<byte> TrainerRematches { get; }
 
     #region eBerry
     public abstract Span<byte> EReaderBerry();
